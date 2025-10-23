@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zoo Systems Admin</title>
+  <link rel="stylesheet" href="zooStyles.css" />
+</head>
+<body>
+  <div id="content">
+    <div id="map">
+      <div id="zone1" class="zone">
+        <div class="animal enclosure unlocked" id="lion">
+          <h3>Lion 🦁 <span class="lockIcon">🔓</span></h3>
+          <div class="lastFedStamp"></div>
+        </div>
+        <div class="animal enclosure unlocked" id="elephant">
+          <h3>Elephant 🐘 <span class="lockIcon">🔓</span></h3>
+          <div class="lastFedStamp"></div>
+        </div>
+        <div class="animal enclosure unlocked" id="giraffe">
+          <h3>Giraffe 🦒 <span class="lockIcon">🔓</span></h3>
+          <div class="lastFedStamp"></div>
+        </div>
+        <div class="animal enclosure unlocked" id="rhino">
+          <h3>Rhino 🦏 <span class="lockIcon">🔓</span></h3>
+          <div class="lastFedStamp"></div>
+        </div>
+      </div>
+
+      <div id="zone2" class="zone">
+        <div class="animal enclosure unlocked" id="penguin">
+          <h3>Penguin 🐧 <span class="lockIcon">🔓</span></h3>
+          <div class="lastFedStamp"></div>
+        </div>
+        <div class="animal enclosure unlocked" id="bear">
+          <h3>Bear 🐻 <span class="lockIcon">🔓</span></h3>
+          <div class="lastFedStamp"></div>
+        </div>
+        <div class="animal enclosure unlocked" id="hippo">
+          <h3>Hippo 🦛 <span class="lockIcon">🔓</span></h3>
+          <div class="lastFedStamp"></div>
+        </div>
+        <div class="animal enclosure unlocked" id="otter">
+          <h3>Otter 🦦 <span class="lockIcon">🔓</span></h3>
+          <div class="lastFedStamp"></div>
+        </div>
+      </div>
+
+      <div id="zone3" class="zone">
+        <div class="animal enclosure unlocked" id="kangaroo">
+          <h3>Kangaroo 🦘 <span class="lockIcon">🔓</span></h3>
+          <div class="lastFedStamp"></div>
+        </div>
+        <div class="animal enclosure unlocked" id="capybara">
+          <h3>Capybara <span class="lockIcon">🔓</span></h3>
+          <div class="lastFedStamp"></div>
+        </div>
+        <div class="animal enclosure unlocked" id="emu">
+          <h3>Emu <span class="lockIcon">🔓</span></h3>
+          <div class="lastFedStamp"></div>
+        </div>
+        <div class="animal enclosure unlocked" id="monkey">
+          <h3>Monkey 🐒 <span class="lockIcon">🔓</span></h3>
+          <div class="lastFedStamp"></div>
+        </div>
+      </div>
+    </div>
+    <div id="controlPanel">
+      <nav id="navbar">
+        <ul>
+          <li><div id="time">00:00</div></li>
+          <li><a href="#locks">Lock</a></li>
+          <li><a href="#feeding">Feed</a></li>
+          <li><a href="#sprinklers">Sprinklers</a></li>
+        </ul>
+      </nav>
+      <div class="panel-content">
+        <div id="locks" class="controlSection">
+          <h2>Enclosure Locks 🔒</h2>
+          <div class="allRow">
+            <h3>All Enclosures</h3>
+            <button id="lockAll">Lock All</button>
+            <button id="unlockAll">Unlock All</button>
+          </div>
+
+          <div id="zone1Locks">
+            <div class="zoneRow">
+              <h3>Zone 1</h3>
+              <label class="switch"><input type="checkbox" id="zone1LockAll"><span class="slider"></span></label>
+            </div>
+            <div class="animalLocks">
+              <div class="animalRow"><h3>Lion</h3><label class="switch"><input type="checkbox" id="lionLock"><span class="slider"></span></label></div>
+              <div class="animalRow"><h3>Elephant</h3><label class="switch"><input type="checkbox" id="elephantLock"><span class="slider"></span></label></div>
+              <div class="animalRow"><h3>Giraffe</h3><label class="switch"><input type="checkbox" id="giraffeLock"><span class="slider"></span></label></div>
+              <div class="animalRow"><h3>Rhino</h3><label class="switch"><input type="checkbox" id="rhinoLock"><span class="slider"></span></label></div>
+            </div>
+          </div>
+
+          <div id="zone2Locks">
+            <div class="zoneRow">
+              <h3>Zone 2</h3>
+              <label class="switch"><input type="checkbox" id="zone2LockAll"><span class="slider"></span></label>
+            </div>
+            <div class="animalLocks">
+              <div class="animalRow"><h3>Penguin</h3><label class="switch"><input type="checkbox" id="penguinLock"><span class="slider"></span></label></div>
+              <div class="animalRow"><h3>Bear</h3><label class="switch"><input type="checkbox" id="bearLock"><span class="slider"></span></label></div>
+              <div class="animalRow"><h3>Hippo</h3><label class="switch"><input type="checkbox" id="hippoLock"><span class="slider"></span></label></div>
+              <div class="animalRow"><h3>Otter</h3><label class="switch"><input type="checkbox" id="otterLock"><span class="slider"></span></label></div>
+            </div>
+          </div>
+
+          <div id="zone3Locks">
+            <div class="zoneRow">
+              <h3>Zone 3</h3>
+              <label class="switch"><input type="checkbox" id="zone3LockAll"><span class="slider"></span></label>
+            </div>
+            <div class="animalLocks">
+              <div class="animalRow"><h3>Kangaroo</h3><label class="switch"><input type="checkbox" id="kangarooLock"><span class="slider"></span></label></div>
+              <div class="animalRow"><h3>Capybara</h3><label class="switch"><input type="checkbox" id="capybaraLock"><span class="slider"></span></label></div>
+              <div class="animalRow"><h3>Emu</h3><label class="switch"><input type="checkbox" id="emuLock"><span class="slider"></span></label></div>
+              <div class="animalRow"><h3>Monkey</h3><label class="switch"><input type="checkbox" id="monkeyLock"><span class="slider"></span></label></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="feeding" class="controlSection">
+          <h2>Feeding 🫘</h2>
+          <div class="allRow">
+            <h3>All Enclosures</h3>
+            <button id="feedAll">Feed All</button>
+          </div>
+
+          <div id="zone1FeedContainer">
+            <div class="zoneRow"><h3>Zone 1</h3><button id="zone1Feed" class="zoneFeed">Feed All</button></div>
+            <div class="animalFeed">
+              <div class="animalRow"><h3>Lion</h3><button class="feed" id="lionFeed">Feed</button></div>
+              <div class="animalRow"><h3>Elephant</h3><button class="feed" id="elephantFeed">Feed</button></div>
+              <div class="animalRow"><h3>Giraffe</h3><button class="feed" id="giraffeFeed">Feed</button></div>
+              <div class="animalRow"><h3>Rhino</h3><button class="feed" id="rhinoFeed">Feed</button></div>
+            </div>
+          </div>
+
+          <div id="zone2Feedcontainer">
+            <div class="zoneRow"><h3>Zone 2</h3><button id="zone2Feed" class="zoneFeed">Feed All</button></div>
+            <div class="animalFeed">
+              <div class="animalRow"><h3>Penguin</h3><button class="feed" id="penguinFeed">Feed</button></div>
+              <div class="animalRow"><h3>Bear</h3><button class="feed" id="bearFeed">Feed</button></div>
+              <div class="animalRow"><h3>Hippo</h3><button class="feed" id="hippoFeed">Feed</button></div>
+              <div class="animalRow"><h3>Otter</h3><button class="feed" id="otterFeed">Feed</button></div>
+            </div>
+          </div>
+
+          <div id="zone3FeedContainer">
+            <div class="zoneRow"><h3>Zone 3</h3><button id="zone3Feed" class="zoneFeed">Feed All</button></div>
+            <div class="animalFeed">
+              <div class="animalRow"><h3>Kangaroo</h3><button class="feed" id="kangarooFeed">Feed</button></div>
+              <div class="animalRow"><h3>Capybara</h3><button class="feed" id="capybaraFeed">Feed</button></div>
+              <div class="animalRow"><h3>Emu</h3><button class="feed" id="emuFeed">Feed</button></div>
+              <div class="animalRow"><h3>Monkey</h3><button class="feed" id="monkeyFeed">Feed</button></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="sprinklers" class="controlSection">
+          <h2>Sprinklers 💦</h2>
+          <div class="allRow">
+            <h3>All Zones</h3>
+            <label class="switch"><input type="checkbox" id="allSprinklers"><span class="slider"></span></label>
+          </div>
+
+          <div class="zoneRowSprinkler">
+            <h3>Zone 1</h3>
+            <label class="switch"><input type="checkbox" id="zone1Sprinkler"><span class="slider"></span></label>
+            <input type="time" id="zone1ScheduleTime" class="timeInput">
+            <button id="zone1SetSchedule" class="setSchedule">Set</button>
+            <button id="zone1ClearSchedule" class="clearSchedule">Clear</button>
+          </div>
+          <p id="zone1Schedule">None Scheduled</p>
+
+          <div class="zoneRowSprinkler">
+            <h3>Zone 2</h3>
+            <label class="switch"><input type="checkbox" id="zone2Sprinkler"><span class="slider"></span></label>
+            <input type="time" id="zone2ScheduleTime" class="timeInput">
+            <button id="zone2SetSchedule" class="setSchedule">Set</button>
+            <button id="zone2ClearSchedule" class="clearSchedule">Clear</button>
+          </div>
+          <p id="zone2Schedule">None Scheduled</p>
+
+          <div class="zoneRowSprinkler">
+            <h3>Zone 3</h3>
+            <label class="switch"><input type="checkbox" id="zone3Sprinkler"><span class="slider"></span></label>
+            <input type="time" id="zone3ScheduleTime" class="timeInput">
+            <button id="zone3SetSchedule" class="setSchedule">Set</button>
+            <button id="zone3ClearSchedule" class="clearSchedule">Clear</button>
+          </div>
+          <p id="zone3Schedule">None Scheduled</p>
+        </div>
+        </div>
+    </div>
+  </div>
+
+  <div id="enclosureModal" class="modal hidden">
+    <div class="modal-content">
+      <h2 id="modalTitle"></h2>
+      <p id="modalLastFed"></p>
+      <p id="modalLockStatus"></p>
+      <p id="modalAlert" style="color: red; font-weight: bold;"></p>
+
+      <button id="modalFeedBtn">Feed</button>
+      <button id="modalLockBtn"></button>
+      <button id="closeModal">Close</button>
+    </div>
+  </div>
+
+  <script src="zooScript2.js"></script>
+</body>
+</html>

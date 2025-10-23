@@ -1,0 +1,293 @@
+/* layout */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #B7E9D9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+  margin: 20px;
+  gap: 20px;
+}
+
+/* zoo map */
+#map {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  background: #F3FDF6;
+  border: 4px solid #333;
+  border-radius: 12px;
+}
+
+/* zones */
+.zone {
+  border: 3px solid #555;
+  border-radius: 12px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Different theme per zone */
+#zone1 { background: #FFE9C8; }
+#zone2 { background: #BAD0E8; }
+#zone3 { background: #FFDAC8; }
+
+/* customize buttons */
+#lockAll{ background: #FF8A70; color: white; }
+#unlockAll{ background: #70C637; color: black; }
+#closeModal{ background: #ccc; color: black; }
+.setSchedule, .clearSchedule { background: #9CDEFF; color: black; }
+
+/* enclosures */
+.animal.enclosure {
+  background: #f8f9fa;
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 10px;
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+  min-height: 70px;
+  position: relative;
+}
+
+.animal.enclosure:hover { transform: scale(1.05); }
+
+.animal.enclosure.locked { border: 2px solid #FF8A70; background: #FFF0E2; }
+.animal.enclosure.unlocked { border: 2px solid #70C637; background: #EEFCD7; }
+
+/* lock icon inside heading */
+.lockIcon {
+  font-size: 0.9em;
+  margin-left: 6px;
+}
+
+/* Last fed stamp */
+.lastFedStamp {
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  right: 8px;
+  font-size: 0.8em;
+  opacity: 0.9;
+  color: #333;
+}
+
+/* control panel */
+#controlPanel {
+  flex: 1;
+  background: #ffffff;
+  border: 4px solid #333;
+  border-radius: 12px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#controlPanel h2 {
+  margin-top: 0;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+#controlPanel button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#controlPanel button:hover { background: #eee; }
+
+/* Toggle switch container */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin: 5px;
+}
+
+/* Hide the default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider (background) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+/* The circle knob */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+/* Checked state styles */
+.switch input:checked + .slider { background-color: #FF8A70; }
+.switch input:not(:checked) + .slider { background-color: #70C637; }
+.switch input:checked + .slider:before { transform: translateX(26px); }
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 1000;
+}
+.modal.hidden { display: none; }
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transform: scale(0.8);
+  animation: popIn 0.2s ease-out forwards;
+}
+@keyframes popIn { to { transform: scale(1); } }
+
+#closeModal {
+  cursor: pointer;
+}
+
+.animalFeed, .animalLocks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  padding: 5px;
+  border: 2px solid black;
+}
+
+.animalRow { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.animalRow:not(:last-child):not(:nth-child(2)) { border-right: 2px dashed black; padding-bottom: 8px; margin-bottom: 8px; }
+
+.zoneRow, .zoneRowSprinkler, .allRow {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+}
+
+.timeInput { margin-left: 8px; }
+.setSchedule { margin-left: 6px; }
+.clearSchedule { margin-left: 4px; }
+
+/* Feed button color states */
+.fed-green { background: #70C637 !important; }
+.fed-yellow { background: #FCD720 !important; }
+.fed-red { background: #FF8A70!important; }
+
+/* sprinkler switch colors */
+#sprinklers .switch input + .slider {
+    background-color: gray;  /* Off state */
+}
+
+#sprinklers .switch input:checked + .slider {
+    background-color: #0A88FF; /* On state */
+}
+
+#sprinklers .switch .slider:before {
+    background-color: white;
+}
+
+/* blue border when sprinklers are on */
+.zone.sprinkling {
+    border: 3px solid #0A88FF !important;
+}
+
+/* navbar */
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around;
+  background: #CAF1E1;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #333;
+  border-radius: 8px 8px 0 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.panel-content {
+  padding: 9px;  
+}
+
+.panel-content section {
+  margin-bottom: 16px;
+}
+
+/* make items side-by-side */
+#navbar ul {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between; 
+  margin: 0;
+  padding: 0 6px;
+  width: 100%;
+  box-sizing: border-box;
+  list-style: none; /* keep bullets hidden */
+}
+
+/* keep each li inline and vertically centered */
+#navbar li {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+#navbar #time {
+  font-weight: bold;
+  margin-left: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+#navbar li a {
+  text-decoration: 2px solid lightgrey underline;
+  color: #333;
+  font-weight: bold;
+}
+
+#navbar li a:hover {
+  text-decoration-color: #333;
+}
+
+#locks, #feeding, #sprinklers {
+  scroll-margin-top: 37px;
+}
